@@ -1,0 +1,63 @@
+<div class="grid p-2" >
+    <div class="col-6 col-offset-3">
+        <div class="text-center border-round-sm">
+            <h3 class="text-center p-3 text-4xl text-0 mt-2 mb-0" style="background-color: #002d3c;">Login form</h3>
+        </div>
+    </div>
+    <div class="col-6 col-offset-3 ">
+        <!--div -->
+            <div style="background-color: #ececed;" class="text-center flex justify-content-center flex-wrap">
+                <form [formGroup]="formLogin" (ngSubmit)="login()">
+                    <div class="py-4">
+                        <div class="card flex justify-content-center">
+                            <span class="p-float-label">
+                                <input pInputText id="username" formControlName="username" class="w-full"/>
+                                <label for="username">Email</label>
+                            </span>
+                            <!--label for="username" class="text-info">Username:</label><br>
+                            <input type="text" formControlName="username" name="username" id="username" class="form-control"-->
+                        </div>
+                        <div class="card flex justify-content-center" *ngIf="formLogin.get('username')?.errors && (!formLogin.get('username')?.pristine || formLogin.get('username')?.dirty)">
+                            <p *ngIf="formLogin.get('username')?.hasError('required')" class="text-red-500" >El campo E-mail es Requerido</p>
+                            <p *ngIf="formLogin.get('username')?.hasError('email')" class="text-red-500" >E-mail NO es CORRECTO</p>
+                        </div>
+                    </div>
+                    <div class="pb-4">
+                        <div class="flex align-items-center justify-content-center m-2">
+                            <span class="p-float-label">
+                                <p-password formControlName="password" [feedback]="false"></p-password>
+                                <label for="password">Password</label>
+                            </span>
+                            <!--label for="password" class="text-info">Password:</label><br>
+                            <input type="password" name="password" formControlName="password" id="password" class="form-control"-->
+                        </div>
+                        <div class="card flex justify-content-center" *ngIf="formLogin.get('password')?.errors && (!formLogin.get('password')?.pristine || formLogin.get('password')?.dirty)">
+                            <p *ngIf="formLogin.get('password')?.hasError('required')" class="text-red-500" >El campo Password es Requerido</p>
+                            <p *ngIf="formLogin.get('password')?.hasError('pattern')" class="text-red-500" >La Contraseña debe tener al menos 8 caracteres: 1 minuscula, 1 Mayuscula, 1 numero, 1 caracter especial('#?!@$%^&*-')</p>
+                        </div>
+                    </div>
+                    <!--div class="flex align-items-start flex-wrap pb-4"-->
+                    <div class="relative pb-4">
+                        <div class="static left-0 pb-4">
+                            <p-checkbox  formControlName="recuerda" [binary]="true" inputId="recuerda" label="Recuerdame" class="text-sm"></p-checkbox>
+                        </div>
+                        <!--label for="recuerda">Recuerdame</label-->
+                        <!--label for="remember-me" class="text-info">
+                            <span>
+                                Remember me
+                            </span>
+                            <span>
+                                <input id="remember-me" name="remember-me" type="checkbox" formControlName="recuerda">
+                            </span>
+                        </label-->
+                    </div>
+                    <div class="form-group pb-4">
+                        <p-button  type="submit" label="Login"  [outlined]="true" severity="warning" [disabled]="!formLogin.valid" ></p-button>
+                        <!--button type="submit" class="boton btn btn-md text-uppercase btn-rounded">Login</button-->
+                    </div>
+                </form>
+                <p-messages [closable]="false"></p-messages>
+            </div>
+        <!--/div-->
+    </div>
+</div>
