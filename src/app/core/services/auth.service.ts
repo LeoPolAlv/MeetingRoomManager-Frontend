@@ -8,7 +8,7 @@ import { jwtDecode } from 'jwt-decode';
 interface TOKEN
 {
   "sub": string,
-  "roles": string,
+  "roles": string[],
   "iat": number,
   "exp": number
 }
@@ -45,6 +45,10 @@ export class AuthService {
     return localStorage.setItem(TOKEN_KEY, token);
   }
 
+  public deleteToken(){
+    localStorage.removeItem(TOKEN_KEY);
+  }
+
   /**
   * Validamos que exita un token creado 
   * @returns false si no hay token creado. True si lo hay
@@ -56,15 +60,6 @@ export class AuthService {
 
   get usuario(): string | null{
     return localStorage.getItem(USERNAME_KEY) ? localStorage.getItem(USERNAME_KEY) : '';
-    
-    /*let usuarioToken: string = '';
-    if(this.vaidarToken()){
-      let tokenSub: TOKEN = jwtDecode (this.getToken());
-      usuarioToken = tokenSub.sub;
-     // console.log('Usuario obtenido: ', usuarioToken);  
-    }
-    return usuarioToken;
-    */
   }
 
   setusuario(usuario: string){
@@ -72,7 +67,7 @@ export class AuthService {
   }
 
   get rol(){
-    let roleToken: string = '';
+    let roleToken: string[] = [];
     if(this.vaidarToken()){
       let tokenRole: TOKEN = jwtDecode (this.getToken());
       roleToken = tokenRole.roles;

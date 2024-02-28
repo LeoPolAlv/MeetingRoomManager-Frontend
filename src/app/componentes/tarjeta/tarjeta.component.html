@@ -1,0 +1,12 @@
+<div class="card pl-4 mb-3 inline-block w-auto">
+    <p-card [header]="header" [subheader]="subheader" class="w-auto h-auto">
+        <ng-template pTemplate="header">
+            <img [alt]=alt [src]="src" class="h-10rem"/>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <p-button label="Nuevo" severity="success" class="pr-2" [outlined]="true" (onClick)="gestAccion('new')"></p-button>
+            <p-button label="Actualizar" severity="warning" class="pr-2" [outlined]="true" (onClick)="gestAccion('update')"></p-button>
+            <p-button label="Eliminar" severity="danger"  [outlined]="true" (onClick)="gestAccion('delete')"></p-button>
+        </ng-template>
+    </p-card>
+</div>

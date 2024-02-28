@@ -15,6 +15,5 @@ export const appConfig: ApplicationConfig = {
     //provideHttpClient(withInterceptors([JwtInterceptor, ErrorHandlerInterceptor])) // Definimos los interceptors de la APP
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true },
-    
    ]
 };
