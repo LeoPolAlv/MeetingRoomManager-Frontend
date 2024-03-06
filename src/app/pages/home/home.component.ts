@@ -9,7 +9,12 @@ import { TarjetasComponent } from 'src/app/componentes/tarjetas/tarjetas.compone
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FooterComponent, HeaderComponent, RouterModule,TarjetasComponent],
+  imports: [
+    CommonModule,
+    FooterComponent,
+    HeaderComponent,
+    RouterModule
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -20,14 +25,20 @@ export class HomeComponent implements OnInit{
 
   constructor(
     //private route: ActivatedRoute,
-    private router: Router
+    //private router: Router
   ){
-    this.reolesAux = this.router.getCurrentNavigation()?.extras.state;
+    /*this.route.data.subscribe( data => {
+      console.log("Roles que leo desde data: ", data);
+      this.reolesAux = data;
+    })
+
+    //this.reolesAux = this.router.getCurrentNavigation()?.extras.state;
 
     for( let i = 0; i < this.reolesAux.roles.length; i++){
       console.log("Elemento Leido: ", this.reolesAux.roles[i]);
       this.rolesH.push(this.reolesAux.roles[i]);
     }
+    */
   }
 
   ngOnInit(): void { }

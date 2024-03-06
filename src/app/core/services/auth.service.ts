@@ -33,7 +33,6 @@ export class AuthService {
 
   public login(loginUsuario: LoginRequest): Observable<JwtResponce> {
     let url = `http://localhost:8080/auth/login`;
-    console.log('--LOGIN: ', loginUsuario);
     return this.http.post<JwtResponce>(url, loginUsuario);
   }
 
@@ -75,7 +74,7 @@ export class AuthService {
     }
     return roleToken;
   }
-
+/*
   public setAuthorities(authorities: string[]): void {
     localStorage.removeItem(AUTHORITIES_KEY);
     localStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
@@ -90,5 +89,5 @@ export class AuthService {
       });
     } 
     return this.roles;
-  }
+  }*/
 }

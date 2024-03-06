@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit{
   }
 
   inicializarForm(){
-    console.log("recuaerda: ", localStorage.getItem('RcdTkMttRmMng'))
+    //console.log("recuaerda: ", localStorage.getItem('RcdTkMttRmMng'))
     this.formLogin = this.fb.group({
       username: [this.authService.usuario, Validators.required],
       password: ["",[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
@@ -89,8 +89,9 @@ export class LoginComponent implements OnInit{
           localStorage.removeItem('RcdTkMttRmMng');
           localStorage.removeItem('UsrTkMttRmMng');
         }
-        console.log("Autorities del user: ", this.authService.rol)
-        this.router.navigateByUrl('/home',{state: {roles: this.authService.rol}});
+        //console.log("Autorities del user: ", this.authService.rol)
+        this.router.navigateByUrl('/home');
+        //this.router.navigateByUrl('/home',{state: {roles: this.authService.rol}});
       }
     });
   }

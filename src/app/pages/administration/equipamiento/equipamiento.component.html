@@ -1,0 +1,43 @@
+<div class="ml-7">
+    <h1>{{titulo}}</h1>
+</div>
+<div class="grid">
+    <div class="ml-7 col">
+        <p-fieldset legend="Datos Equipamiento" >
+            <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">  
+                <div class="field grid">
+                    <label for="idequipo" class="col-fixed" style="width:150px">Identificador</label>
+                    <div class="col">
+                        <input id="idEquipo" formControlName="idEquipo" type="text" pInputText 
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"/>
+                    </div>
+                </div>    
+                <div class="field grid">
+                    <label for="nameequipo" class="col-fixed" style="width:150px">Denominacion</label>
+                    <div class="col">
+                        <input formControlName="nombreEquipo" id="nameequipo" type="text" 
+                            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary">
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label for="descricionEquipo" class="col-fixed" style="width:150px">Descripcion</label>
+                    <div class="col">
+                        <textarea formControlName="descripcionEquipo" id="descricionEquipo" rows="5" cols="30" pInputTextarea class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"></textarea>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <p-button [text]="true" [raised]="true" type="submit" [disabled]="disabled">{{name}}</p-button>
+                    <p-button label="Volver" [text]="true" [raised]="true" severity="secondary" class="pl-3" (onClick)="volver()"></p-button>
+                    <!--button class="button" type="submit" [disabled]="disabled">{{name}}</button-->
+                </div>
+            </form>
+            <p-messages></p-messages>
+    </p-fieldset>
+    </div>
+    
+        <div class="card flex ml-7 mb-5 col" >
+            <p-fieldset legend="Busqueda Equipos" [hidden]="hidden">
+                <p-listbox [options]="equipos" [(ngModel)]="selectedEquipo" optionLabel="option" (onChange)="equipoSeleccionado(selectedEquipo)" optionLabel="nombreEquipo" [filter]="true" [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}" [hidden]="hidden"></p-listbox>
+            </p-fieldset>
+        </div>
+</div>
