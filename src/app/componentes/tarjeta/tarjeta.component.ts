@@ -107,12 +107,14 @@ export class TarjetaComponent implements OnInit{
 
     switch(tarjeta){
       case 'EQ':
+        //console.log("Entro por equipamiento en tarjeta");
         url = '/home/equipamiento';
         break;
 
       case 'US':
         break;
       case 'SA':
+        //console.log("Entro por salas en tarjeta");
         url = '/home/salas';
         break;
 

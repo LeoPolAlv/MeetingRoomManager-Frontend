@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.css']
 })
-export class TarjetasComponent implements OnInit{
+export default class TarjetasComponent implements OnInit{
 
   //@Input()
   roles!: string[];

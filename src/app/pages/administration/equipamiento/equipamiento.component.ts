@@ -10,7 +10,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { ListboxModule } from 'primeng/listbox';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-equipamiento',
@@ -28,7 +28,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./equipamiento.component.css'],
   providers: [MessageService]
 })
-export class EquipamientoComponent implements OnInit{
+export default class EquipamientoComponent implements OnInit{
 
   equipos!: EquipoResponce[];
 
@@ -47,7 +47,7 @@ export class EquipamientoComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute,
+    //private activatedRoute: ActivatedRoute,
     private messageService: MessageService,
     private router: Router,
     private equipoService: EquipamientoServiceService
@@ -167,7 +167,7 @@ export class EquipamientoComponent implements OnInit{
           this.equipoService.updateEquipo(this.selectedEquipo).subscribe({
             next: (updEquipo: EquipoResponce) => {
               //console.log("Equipo actualizado: ", updEquipo);
-              this.messageService.add({severity:'success', summary:'Actualizacion Rol', detail:`Equipamiento ${updEquipo.nombreEquipo} actualizado correctamente`});
+              this.messageService.add({severity:'success', summary:'Actualizacion Datos Equipamiento', detail:`Equipamiento ${updEquipo.nombreEquipo} actualizado correctamente`});
             },
             error: (err: any) => {
               this.messageService.add({severity:'error', summary:'Error en Campos de entrada', detail: err.error.mensajeError});

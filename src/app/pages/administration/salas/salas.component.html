@@ -1,1 +1,53 @@
-<p>salas works!</p>
+<div class="ml-7">
+    <h1>{{titulo}}</h1>
+</div>
+<div class="grid">
+    <div class="ml-7 col">
+        <p-fieldset legend="Gestion Salas" >
+            <form [formGroup]="salaForm" (ngSubmit)="onSubmit()">
+                <div class="field grid">
+                    <label for="idsala" class="col-fixed" style="width:150px">Identificador</label>
+                    <div class="col">
+                        <input id="idsala" formControlName="idSala" type="text" pInputText 
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"/>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label for="namesala" class="col-fixed" style="width:150px">Denominacion</label>
+                    <div class="col">
+                        <input formControlName="nombreSala" id="namesala" type="text" 
+                            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary">
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label for="descricionsala" class="col-fixed" style="width:150px">Descripcion</label>
+                    <div class="col">
+                        <textarea formControlName="descripcion" id="descricionsala" rows="5" cols="30" pInputTextarea class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"></textarea>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label for="capacidadsala" class="col-fixed" style="width:150px">Capacidad</label>
+                    <div class="col">
+                        <p-inputNumber id="capacidadsala" formControlName="capacidad" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="1" [max]="200"> </p-inputNumber>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label for="ubicacionsala" class="col-fixed" style="width:150px">Ubicacion</label>
+                    <div class="col">
+                        <p-listbox [options]="plantas" id="ubicacionsala" formControlName="ubicacion" optionValue="name" optionLabel="name" [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}"></p-listbox>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <p-button [text]="true" [raised]="true" type="submit" [disabled]="disabled || salaForm.invalid">{{name}}</p-button>
+                    <p-button label="Volver" [text]="true" [raised]="true" severity="secondary" class="pl-3" (onClick)="volver()"></p-button>
+                </div>
+            </form>
+            <p-messages></p-messages>
+    </p-fieldset>
+    </div>
+        <div class="card flex ml-7 mb-5 col" >
+            <p-fieldset legend="Busqueda Salas" [hidden]="hidden">
+                <p-listbox [options]="salas" #selectedSala optionLabel="option" (onChange)="salaSeleccionado(selectedSala)" optionLabel="nombreSala" [filter]="true" [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}" [hidden]="hidden"></p-listbox>
+            </p-fieldset>
+        </div>
+</div>

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from 'src/app/sared/footer/footer.component';
 import { HeaderComponent } from 'src/app/sared/header/header.component';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { TarjetasComponent } from 'src/app/componentes/tarjetas/tarjetas.component';
+//import { TarjetasComponent } from 'src/app/componentes/tarjetas/tarjetas.component';
 
 @Component({
   selector: 'app-home',
